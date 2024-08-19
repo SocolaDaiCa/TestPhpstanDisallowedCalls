@@ -1,0 +1,49 @@
+{
+    "name": "socoladaica/test-phpstan-disallowed-calls",
+    "description": "",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Socola Đại Ca",
+            "email": "SocolaDaiCa@gmail.com",
+            "role": "Developer",
+            "homepage": "https://github.com/SocolaDaiCa"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "*",
+        "spaze/phpstan-disallowed-calls": "^3.4"
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": [
+
+            ],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "SocolaDaiCa\\TestPhpstanDisallowedCalls\\": "src/",
+            "SocolaDaiCa\\TestPhpstanDisallowedCalls\\Database\\Factories\\": "database/factories/",
+            "SocolaDaiCa\\TestPhpstanDisallowedCalls\\Database\\Migrations\\": "database/migrations/",
+            "SocolaDaiCa\\TestPhpstanDisallowedCalls\\Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SocolaDaiCa\\TestPhpstanDisallowedCalls\\Tests\\": "tests/"
+        }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packagist.socoladaica.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

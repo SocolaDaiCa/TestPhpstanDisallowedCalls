@@ -1,0 +1,39 @@
+name: Review code
+
+on:
+  workflow_call:
+    inputs:
+      php:
+        default: "8.2"
+        type: string
+    #      message:
+    #        default: "refactor: php-cs-fixer"
+    #        type: string
+    #      fix:
+    #        default: true
+    #        type: boolean
+    secrets:
+      COMPOSER_AUTH:
+        required: true
+        description: A base64-encoded string containing the composer auth.json file contents.
+jobs:
+  review-code:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ inputs.php }}
+          extensions: json, dom, curl, libxml, mbstring
+          coverage: none
+
+      - run: composer install
+      - name: Install socoladaica/laravel-audit
+        run: composer install
+
+      - name: Run larastan
+        run: $GITHUB_WORKSPACE/vendor/bin/phpstan analyse -c $GITHUB_WORKSPACE/audit-package.neon

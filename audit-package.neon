@@ -1,0 +1,16 @@
+includes:
+    # https://github.com/spaze/phpstan-disallowed-calls/tree/main/docs
+    - ./vendor/spaze/phpstan-disallowed-calls/extension.neon
+parameters:
+    customRulesetUsed: true
+    paths:
+        - ./src
+        - ./config
+        - ./database
+        - ./routes
+    excludePaths:
+        - ../../../resources/views
+    disallowedFunctionCalls:
+        -
+            function: 'echo()'
+            message: 'should return view'
