@@ -1,21 +1,6 @@
 name: Review code
 
-on:
-  workflow_call:
-    inputs:
-      php:
-        default: "8.2"
-        type: string
-    #      message:
-    #        default: "refactor: php-cs-fixer"
-    #        type: string
-    #      fix:
-    #        default: true
-    #        type: boolean
-    secrets:
-      COMPOSER_AUTH:
-        required: true
-        description: A base64-encoded string containing the composer auth.json file contents.
+on: [push]
 jobs:
   review-code:
     runs-on: ubuntu-latest
@@ -27,7 +12,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: ${{ inputs.php }}
+          php-version: 8.2
           extensions: json, dom, curl, libxml, mbstring
           coverage: none
 
