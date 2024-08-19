@@ -5,9 +5,6 @@ parameters:
     customRulesetUsed: true
     paths:
         - ./src
-        - ./config
-        - ./database
-        - ./routes
     excludePaths:
         - ../../../resources/views
     disallowedFunctionCalls:
